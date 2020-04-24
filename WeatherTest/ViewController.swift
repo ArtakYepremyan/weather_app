@@ -15,14 +15,14 @@ class ViewController: UIViewController {
         searchButtonOutlet.layer.cornerRadius = searchButtonOutlet.frame.size.height / 2
         tableView.delegate = self
         tableView.dataSource = self
-        NetworkManager.shared.getWeatherData() { city in
-            DispatchQueue.main.async {
-                if let city = city {
-                    self.city.append(city)
-                    self.tableView.reloadData()
-                }
-            }
-        }
+//        NetworkManager.shared.getWeatherData() { city in
+//            DispatchQueue.main.async {
+//                if let city = city {
+//                    self.city.append(city)
+//                    self.tableView.reloadData()
+//                }
+//            }
+//        }
 
         // Do any additional setup after loading the view.
     }
