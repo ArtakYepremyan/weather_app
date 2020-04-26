@@ -15,9 +15,9 @@
 		8435B80C244C83CA006E824E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8435B80A244C83CA006E824E /* LaunchScreen.storyboard */; };
 		8435B814244C83DE006E824E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435B813244C83DE006E824E /* NetworkManager.swift */; };
 		8435B816244C84CF006E824E /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435B815244C84CF006E824E /* City.swift */; };
-		845122D22453A2280026B349 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845122D12453A2280026B349 /* FavoriteViewController.swift */; };
-		845122D42453A3CB0026B349 /* FavoriteCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845122D32453A3CB0026B349 /* FavoriteCityCell.swift */; };
 		84A47999244C8F80004E0B69 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A47998244C8F80004E0B69 /* CityCell.swift */; };
+		84E558512454ECB500846F50 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E558502454ECB500846F50 /* FavoriteViewController.swift */; };
+		84E558532454F55E00846F50 /* FavoriteCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E558522454F55E00846F50 /* FavoriteCityCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +31,9 @@
 		8435B80D244C83CA006E824E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8435B813244C83DE006E824E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8435B815244C84CF006E824E /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
-		845122D12453A2280026B349 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
-		845122D32453A3CB0026B349 /* FavoriteCityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCityCell.swift; sourceTree = "<group>"; };
 		84A47998244C8F80004E0B69 /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
+		84E558502454ECB500846F50 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		84E558522454F55E00846F50 /* FavoriteCityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCityCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,11 +68,11 @@
 			children = (
 				8435B7FF244C83C7006E824E /* AppDelegate.swift */,
 				8435B801244C83C7006E824E /* SceneDelegate.swift */,
-				84A47998244C8F80004E0B69 /* CityCell.swift */,
-				845122D32453A3CB0026B349 /* FavoriteCityCell.swift */,
+				84E558502454ECB500846F50 /* FavoriteViewController.swift */,
+				84E558522454F55E00846F50 /* FavoriteCityCell.swift */,
 				8435B813244C83DE006E824E /* NetworkManager.swift */,
-				845122D12453A2280026B349 /* FavoriteViewController.swift */,
 				8435B803244C83C7006E824E /* ViewController.swift */,
+				84A47998244C8F80004E0B69 /* CityCell.swift */,
 				8435B815244C84CF006E824E /* City.swift */,
 				8435B805244C83C7006E824E /* Main.storyboard */,
 				8435B808244C83CA006E824E /* Assets.xcassets */,
@@ -155,9 +155,9 @@
 			files = (
 				8435B804244C83C7006E824E /* ViewController.swift in Sources */,
 				8435B816244C84CF006E824E /* City.swift in Sources */,
-				845122D42453A3CB0026B349 /* FavoriteCityCell.swift in Sources */,
+				84E558532454F55E00846F50 /* FavoriteCityCell.swift in Sources */,
 				8435B814244C83DE006E824E /* NetworkManager.swift in Sources */,
-				845122D22453A2280026B349 /* FavoriteViewController.swift in Sources */,
+				84E558512454ECB500846F50 /* FavoriteViewController.swift in Sources */,
 				84A47999244C8F80004E0B69 /* CityCell.swift in Sources */,
 				8435B800244C83C7006E824E /* AppDelegate.swift in Sources */,
 				8435B802244C83C7006E824E /* SceneDelegate.swift in Sources */,

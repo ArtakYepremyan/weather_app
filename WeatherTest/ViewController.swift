@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     var city: [City] = []
+    static var cityClosure : ((City) -> Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
         searchButtonOutlet.layer.cornerRadius = searchButtonOutlet.frame.size.height / 2
@@ -30,6 +31,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var searchButtonOutlet: UIButton!
+    
+    
+    @IBAction func makeFavorityAction(_ sender: UIButton) {
+        _ = ViewController.cityClosure?(city[sender.tag])
+        sender.isHidden = true
+    }
+    
     @IBAction func searchAction(_ sender: Any) {
         guard let text = searchField.text else {return}
         NetworkManager.shared.getWeatherData(for: text) { city in
@@ -41,8 +49,8 @@ class ViewController: UIViewController {
                    }
                }
     }
-    
 }
+
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         city.count
@@ -53,6 +61,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         cell.setUp(with: city[indexPath.row])
+        cell.saveButton.tag = indexPath.row
         return cell
     }
     

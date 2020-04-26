@@ -10,15 +10,18 @@ import UIKit
 
 class CityCell : UITableViewCell{
     static let id = "CityCell"
-   
  
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
+    @IBOutlet weak var saveButton: UIButton!
+    
     
     func setUp (with city: City) {
         nameLabel.text = city.name
         tempLabel.text = String(city.temp)
         weatherLabel.text = city.weatherType
     }
+    
+   
 }
