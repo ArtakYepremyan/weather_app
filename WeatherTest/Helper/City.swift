@@ -10,27 +10,25 @@ import Foundation
 
 struct City {
     let weatherType: String
-    let temp: Double
+    let temp: String
     let name: String
     init(from response: CityResponse) {
         weatherType = response.weather[0].main
-        temp = response.main.temp
+        temp = "\(Int(response.main.temp - 273.15))°C"
         name = response.name
-        
     }
 }
-
 struct CityResponse : Codable {
-    let weather: [Weather]
-    let main: Main
+    let weather: [WeatherData]
+    let main: MainData
     let name : String
 }
 
-struct Weather : Codable {
+struct WeatherData : Codable {
    let main: String
 }
 
-struct Main : Codable {
+struct MainData : Codable {
     let temp : Double
 }
 

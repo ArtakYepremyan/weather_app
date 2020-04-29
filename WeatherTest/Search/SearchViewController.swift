@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SearchViewController: UIViewController {
     var city: [City] = []
     static var cityClosure : ((City) -> Void)?
     override func viewDidLoad() {
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func makeFavorityAction(_ sender: UIButton) {
-        _ = ViewController.cityClosure?(city[sender.tag])
+        _ = SearchViewController.cityClosure?(city[sender.tag])
         sender.isHidden = true
     }
     
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         city.count
     }

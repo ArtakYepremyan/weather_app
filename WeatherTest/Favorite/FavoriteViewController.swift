@@ -20,7 +20,7 @@ class FavoriteViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         getSavedCityNames()
-        ViewController.cityClosure = { city in
+        SearchViewController.cityClosure = { city in
             var allredyAdded = false
             self.favoriteCityNames.forEach { name in
                 if name == city.name {
@@ -76,6 +76,15 @@ extension FavoriteViewController : UITableViewDataSource , UITableViewDelegate {
         favoriteCitys.count
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
+        favoriteCityNames.remove(at: indexPath.row)
+        saveCityNames()
+        favoriteCitys = []
+        setUpFavoriteCitys()
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = self.tableView.dequeueReusableCell(withIdentifier: FavoriteCityCell.id, for: indexPath) as? FavoriteCityCell else {
             return UITableViewCell()
@@ -83,6 +92,13 @@ extension FavoriteViewController : UITableViewDataSource , UITableViewDelegate {
         cell.setUp(with: favoriteCitys[indexPath.row])
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let dVC = DetailViewController()
+        dVC.city = favoriteCitys[indexPath.row]
+        navigationController?.pushViewController(dVC, animated: true)
+    }
+
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         84
