@@ -35,10 +35,6 @@ class FavoriteViewController: UIViewController {
         }
     }
     
-    struct Keys {
-        static let cityNames = "cityNames"
-    }
-    
     func getSavedCityNames() {
         guard let names = defaults.object(forKey: Keys.cityNames) as? [String] else {return}
         favoriteCityNames = names
@@ -103,4 +99,8 @@ extension FavoriteViewController : UITableViewDataSource , UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         84
     }
+}
+
+struct Keys {
+    static let cityNames = "cityNames"
 }

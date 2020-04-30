@@ -11,35 +11,26 @@ import UIKit
 class SearchViewController: UIViewController {
     var city: [City] = []
     static var cityClosure : ((City) -> Void)?
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        searchButtonOutlet.layer.cornerRadius = searchButtonOutlet.frame.size.height / 2
-        tableView.delegate = self
-        tableView.dataSource = self
-//        NetworkManager.shared.getWeatherData() { city in
-//            DispatchQueue.main.async {
-//                if let city = city {
-//                    self.city.append(city)
-//                    self.tableView.reloadData()
-//                }
-//            }
-//        }
 
-        // Do any additional setup after loading the view.
-    }
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var searchButtonOutlet: UIButton!
     
+    override func viewDidLoad() {
+            super.viewDidLoad()
+            searchButtonOutlet.layer.cornerRadius = searchButtonOutlet.frame.size.height / 2
+            tableView.delegate = self
+            tableView.dataSource = self
+    }
     
     @IBAction func makeFavorityAction(_ sender: UIButton) {
         _ = SearchViewController.cityClosure?(city[sender.tag])
-        sender.isHidden = true
+        tableView.reloadData()
     }
     
     @IBAction func searchAction(_ sender: Any) {
-        guard let text = searchField.text else {return}
+        guard let text = searchField.text, alreadyAddedCheck(with: text) == true else {return}
         NetworkManager.shared.getWeatherData(for: text) { city in
                    DispatchQueue.main.async {
                        if let city = city {
@@ -49,6 +40,17 @@ class SearchViewController: UIViewController {
                    }
                }
     }
+    
+    private func alreadyAddedCheck(with name: String) -> Bool {
+        var first = true
+        city.forEach { city in
+            if city.name.lowercased() == name.lowercased() {
+                first = false
+            }
+        }
+        return first
+    }
+    
 }
 
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
